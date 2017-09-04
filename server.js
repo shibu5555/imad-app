@@ -5,16 +5,42 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
-var ArticleOne={
+var articles={
+	 ArticleOne:{
 	title:'The first Article',
 	heading:'Article-one',
 	date:'5 sep 2017',
 	content:`<p>its completd done its completd done its completd done its completd done its completd done its completd done its completd done its completd done</p>
 
-			<p>its completd done its completd done its completd done its completd done its completd done its completd done its completd done its completd done</p>
+				<p>its completd done its completd done its completd done its completd done its completd done its completd done its completd done its completd done</p>
 				
-			<p>its completd done its completd done its completd done its completd done its completd done its completd done its completd done its completd done</p>`
+				<p>its completd done its completd done its completd done its completd done its completd done its completd done its completd done its completd done</p>`
+},
+
+ ArticleTwo:{
+	title:'The Second Article',
+	heading:'Article-one',
+	date:'5 sep 2017',
+	content:`<p>its completd done its completd done its completd done its completd done its completd done its completd done its completd done its completd done</p>
+
+				<p>its completd done its completd done its completd done its completd done its completd done its completd done its completd done its completd done</p>
+				
+				<p>its completd done its completd done its completd done its completd done its completd done its completd done its completd done its completd done</p>`
+},
+
+
+ArticleThree:{
+	title:'The Third Article',
+	heading:'Article-one',
+	date:'5 sep 2017',
+	content:`<p>its completd done its completd done its completd done its completd done its completd done its completd done its completd done its completd done</p>
+
+				<p>its completd done its completd done its completd done its completd done its completd done its completd done its completd done its completd done</p>
+				
+				<p>its completd done its completd done its completd done its completd done its completd done its completd done its completd done its completd done</p>`
+}
 };
+
 
 function createTempler(data){
 	var title=data.title;
