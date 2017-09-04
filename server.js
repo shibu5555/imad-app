@@ -81,17 +81,11 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
-app.get('/Article-one',function(req,res){
-  res.send(createTempler(ArticleOne))
+app.get('/:articleName', function (req, res) {
+	var articleName=req.params.articleName;
+  res.send(createTempler(articles[articleName]));
 });
 
-app.get('/Article-two',function(req,res){
-    res.sendFile(path.join(__dirname, 'ui', 'Article-two.html'));
-});
-
-app.get('/Article-three',function(req,res){
-    res.sendFile(path.join(__dirname, 'ui', 'Article-three.html'));
-});
 
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
