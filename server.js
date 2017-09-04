@@ -6,8 +6,8 @@ var app = express();
 app.use(morgan('combined'));
 
 var articles={
-'ArticleOne':{
-	title1:'The first Article',
+'article-one':{
+	title:'The first Article',
 	heading:'Article-one',
 	date:'5 sep 2017',
 	content:`<p>its completd done its completd done its completd done its completd done its completd done its completd done its completd done its completd done</p>
@@ -17,8 +17,8 @@ var articles={
 				<p>its completd done its completd done its completd done its completd done its completd done its completd done its completd done its completd done</p>`
 },
 
- 'ArticleTwo':{
-	title1:'The Second Article',
+ 'article-two':{
+	title:'The Second Article',
 	heading:'Article-one',
 	date:'5 sep 2017',
 	content:`<p>its completd done its completd done its completd done its completd done its completd done its completd done its completd done its completd done</p>
@@ -29,8 +29,8 @@ var articles={
 },
 
 
-'ArticleThree':{
-	title1:'The Third Article',
+'articl-three':{
+	title:'The Third Article',
 	heading:'Article-one',
 	date:'5 sep 2017',
 	content:`<p>its completd done its completd done its completd done its completd done its completd done its completd done its completd done its completd done</p>
@@ -43,7 +43,7 @@ var articles={
 
 
 function createTempler(data){
-	var title1=data.title1;
+	var title=data.title;
 	var date=data.date;
 	var heading=data.heading;
 	var content=data.content;
