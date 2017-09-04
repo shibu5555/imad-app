@@ -7,7 +7,7 @@ app.use(morgan('combined'));
 
 var articles={
 ArticleOne:{
-	title:'The first Article',
+	title1:'The first Article',
 	heading:'Article-one',
 	date:'5 sep 2017',
 	content:`<p>its completd done its completd done its completd done its completd done its completd done its completd done its completd done its completd done</p>
@@ -18,7 +18,7 @@ ArticleOne:{
 },
 
  ArticleTwo:{
-	title:'The Second Article',
+	title1:'The Second Article',
 	heading:'Article-one',
 	date:'5 sep 2017',
 	content:`<p>its completd done its completd done its completd done its completd done its completd done its completd done its completd done its completd done</p>
@@ -30,7 +30,7 @@ ArticleOne:{
 
 
 ArticleThree:{
-	title:'The Third Article',
+	title1:'The Third Article',
 	heading:'Article-one',
 	date:'5 sep 2017',
 	content:`<p>its completd done its completd done its completd done its completd done its completd done its completd done its completd done its completd done</p>
@@ -43,14 +43,14 @@ ArticleThree:{
 
 
 function createTempler(data){
-	var title=data.title;
+	var title1=data.title1;
 	var date=data.date;
 	var heading=data.heading;
 	var content=data.content;
 	var htmlTemplate=`<html>
 	<head>
 		<title>
-			${title}
+			${title1}
 		</title>
 		<link href="/ui/style.css" rel="stylesheet" />
 	</head>
