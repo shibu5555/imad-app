@@ -1,46 +1,43 @@
 var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
-
 var app = express();
 app.use(morgan('combined'));
-var title="";
+
 var articles={
-'article-one':{
-	title:'The first Article',
-	heading:'Article-one',
-	date:'5 sep 2017',
-	content:`<p>its completd done its completd done its completd done its completd done its completd done its completd done its completd done its completd done</p>
+	'article-one':{
+		title:'The first Article',
+		heading:'Article-one',
+		date:'5 sep 2017',
+		content:`<p>its completd done its completd done its completd done its completd done its completd done its completd done its completd done its completd done</p>
 
-				<p>its completd done its completd done its completd done its completd done its completd done its completd done its completd done its completd done</p>
-				
-				<p>its completd done its completd done its completd done its completd done its completd done its completd done its completd done its completd done</p>`
-},
+					<p>its completd done its completd done its completd done its completd done its completd done its completd done its completd done its completd done</p>
+					
+					<p>its completd done its completd done its completd done its completd done its completd done its completd done its completd done its completd done</p>`
+	},
+	'article-two':{
+		title:'The Second Article',
+		heading:'Article-Two',
+		date:'5 sep 2017',
+		content:`<p>its completd done its completd done its completd done its completd done its completd done its completd done its completd done its completd done</p>
 
- 'article-two':{
-	title:'The Second Article',
-	heading:'Article-one',
-	date:'5 sep 2017',
-	content:`<p>its completd done its completd done its completd done its completd done its completd done its completd done its completd done its completd done</p>
+					<p>its completd done its completd done its completd done its completd done its completd done its completd done its completd done its completd done</p>
+					
+					<p>its completd done its completd done its completd done its completd done its completd done its completd done its completd done its completd done</p>`
+	},
 
-				<p>its completd done its completd done its completd done its completd done its completd done its completd done its completd done its completd done</p>
-				
-				<p>its completd done its completd done its completd done its completd done its completd done its completd done its completd done its completd done</p>`
-},
+	'article-three':{
+		title:'The third Article',
+		heading:'Article-third',
+		date:'5 sep 2017',
+		content:`<p>its completd done its completd done its completd done its completd done its completd done its completd done its completd done its completd done</p>
 
+					<p>its completd done its completd done its completd done its completd done its completd done its completd done its completd done its completd done</p>
+					
+					<p>its completd done its completd done its completd done its completd done its completd done its completd done its completd done its completd done</p>`
+	}
 
-'articl-three':{
-	title:'The Third Article',
-	heading:'Article-one',
-	date:'5 sep 2017',
-	content:`<p>its completd done its completd done its completd done its completd done its completd done its completd done its completd done its completd done</p>
-
-				<p>its completd done its completd done its completd done its completd done its completd done its completd done its completd done its completd done</p>
-				
-				<p>its completd done its completd done its completd done its completd done its completd done its completd done its completd done its completd done</p>`
-}
 };
-
 
 function createTempler(data){
 	var title=data.title;
@@ -50,7 +47,7 @@ function createTempler(data){
 	var htmlTemplate=`<html>
 	<head>
 		<title>
-			${title1}
+			${title}
 		</title>
 		<link href="/ui/style.css" rel="stylesheet" />
 	</head>
@@ -60,8 +57,7 @@ function createTempler(data){
 				<h1>${heading}</h1>
 			</div>
 			<div>
-				<a href="/">Home</a>
-				<h2>shuvam giri</h2>
+			  	<a href="/">Home</a>
 			</div>
 			<hr/>
 			<div>
@@ -77,15 +73,14 @@ function createTempler(data){
 	return htmlTemplate;
 }
 
+app.get('/:articlesName', function (req, res) {
+  var articlesName=req.params.articlesName;
+  res.send(createTempler(articles[articlesName]));
+});
+
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
-
-app.get('/:articleName', function (req, res) {
-	var articleName=req.params.articleName;
-  res.send(createTempler(articles[articleName]));
-});
-
 
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
